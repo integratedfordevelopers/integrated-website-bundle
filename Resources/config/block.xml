@@ -15,6 +15,7 @@
         <service id="integrated_website.block_handler.contact" class="%integrated_website.block_handler.contact.class%">
             <argument type="service" id="form.factory" />
             <argument type="service" id="request_stack" />
+            <argument type="service" id="mailer" />
             <tag name="integrated.block" type="contact" />
         </service>
 

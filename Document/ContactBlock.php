@@ -14,6 +14,7 @@ namespace Integrated\Bundle\WebsiteBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Integrated\Common\Form\Mapping\Annotations as Type;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Collection;
 
 use Integrated\Bundle\BlockBundle\Document\Block\Block;
 
@@ -28,9 +29,22 @@ class ContactBlock extends Block
     /**
      * @var array
      * @ODM\Hash
-     * @Type\Field(type="text", options={"required"=true})
-     * @Assert\NotBlank(message="U bent verplicht tenminste een e-mailadres in te vullen")
-     * @Assert\Email(message="Deze waarde is geen geldig e-mailadres", strict="true")
+     * @Type\Field(
+     *      type="bootstrap_collection",
+     *      options={
+     *          "type"="email",
+     *          "required"=true,
+     *          "allow_add"=true,
+     *          "allow_delete"=true,
+     *          "add_button_text"="Add Recipient",
+     *          "delete_button_text"="Delete Recipient",
+     *          "error_bubbling"=false
+     *      }
+     * )
+     * @Assert\Count(min=1)
+     * @Assert\All({
+     *      @Assert\Email
+     * })
      */
     protected $recipients = [];
 

@@ -2,10 +2,15 @@
     <div class="panel-heading">
         {{ block.title }}
     </div>
-
     <div class="panel-body">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+        {% if mailed %}
+            <p>Thank you,</p>
+            <p>&nbsp;</p>
+            <p>An email has been sent.</p>
+        {% else %}
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        {% endif %}
     </div>
 </div>
