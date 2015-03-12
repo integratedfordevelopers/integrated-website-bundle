@@ -59,13 +59,13 @@ class ContactBlockHandler extends BlockHandler
 
         $currentRequest = $this->requestStack->getCurrentRequest();
 
-        if($integratedContactType = $currentRequest->request->get('integrated_contact_type')){
+        if ($integratedContactType = $currentRequest->request->get('integrated_contact_type')) {
             $name = $integratedContactType['name'];
             $emailAddress = $integratedContactType['emailAddress'];
             $content = $integratedContactType['content'];
             $recipients = $block->getRecipients();
 
-            if(isset($name) && isset($emailAddress) && isset($content) && isset($recipients) && is_array($recipients) && count($recipients) > 0){
+            if (isset($name) && isset($emailAddress) && isset($content) && isset($recipients) && is_array($recipients) && count($recipients) > 0) {
                 $numSuccess = $this->sendMail($recipients, $name, $emailAddress, $content);
                 $mailed = true;
             }
