@@ -4,9 +4,7 @@
     </div>
     <div class="panel-body">
         {% if mailed %}
-            <p>Thank you,</p>
-            <p>&nbsp;</p>
-            <p>An email has been sent.</p>
+            {{ block.thankYouText|default }}
         {% else %}
             {{ form_start(form) }}
             {{ form_widget(form) }}

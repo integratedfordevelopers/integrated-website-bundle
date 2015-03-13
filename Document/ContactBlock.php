@@ -49,6 +49,13 @@ class ContactBlock extends Block
     protected $recipients = [];
 
     /**
+     * @var string
+     * @ODM\String
+     * @Type\Field(type="textarea", options={"label"="Thank you text"})
+     */
+    protected $thankYouText;
+
+    /**
      * @return array
      */
     public function getRecipients(){
@@ -62,6 +69,24 @@ class ContactBlock extends Block
     public function setRecipients($recipients){
         $this->recipients = $recipients;
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getThankYouText()
+    {
+        return $this->thankYouText;
+    }
+
+    /**
+     * @param string $thankYouText
+     * @return $this
+     */
+    public function setThankYouText($thankYouText)
+    {
+        $this->thankYouText = $thankYouText;
         return $this;
     }
 
