@@ -1,9 +1,9 @@
 {
     "name": "integrated/website-bundle",
     "type": "symfony-bundle",
-    "description": "Integrated Website Bundle",
+    "description": "Provides a website front-end for content in Integrated",
     "keywords": ["Integrated", "website"],
-    "homepage": "http://www.e-active.nl",
+    "homepage": "http://www.integratedfordevelopers.com",
     "license": "MIT",
     "authors": [
         {
@@ -23,12 +23,18 @@
         "doctrine/mongodb-odm": "*",
         "doctrine/mongodb-odm-bundle": "~3.0",
         "integrated/content-bundle": "~0.3",
+        "integrated/block-bundle": "~0.4",
         "integrated/page-bundle": "~0.3",
         "integrated/theme-bundle": "~0.3",
+        "integrated/menu-bundle": "~0.4",
         "integrated/channel-bundle": "~0.3",
         "knplabs/knp-paginator-bundle": ">=2.4",
         "friendsofsymfony/jsrouting-bundle": "1.5.*",
         "twbs/bootstrap": "3.*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "2.*",
+        "phpunit/phpunit": "~4.8"
     },
     "suggest": {
         "integrated/channel-bundle": "Manage channel configuration"
@@ -36,11 +42,6 @@
     "autoload":{
         "psr-4":{
             "Integrated\\Bundle\\WebsiteBundle\\": ""
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "0.9.9-dev"
         }
     }
 }
