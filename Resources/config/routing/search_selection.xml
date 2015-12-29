@@ -4,8 +4,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
-    <route id="integrated_website_page_edit" path="/{id}/edit" methods="GET|POST">
-        <default key="_controller">IntegratedWebsiteBundle:Page:edit</default>
-        <option key="expose">true</option>
+    <route id="integrated_website_search_selection_rss" path="/content/rss/{id}" methods="GET">
+        <default key="_controller">IntegratedWebsiteBundle:SearchSelection:rss</default>
+        <default key="_format">xml</default>
     </route>
 </routes>
