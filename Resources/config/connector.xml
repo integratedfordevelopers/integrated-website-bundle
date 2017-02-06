@@ -10,6 +10,10 @@
         <parameter key="integrated_website.connector.website_configuration.class">Integrated\Bundle\WebsiteBundle\Connector\WebsiteConfiguration</parameter>
         <parameter key="integrated_website.connector.website_adapter.class">Integrated\Bundle\WebsiteBundle\Connector\WebsiteAdapter</parameter>
 
+        <parameter key="integrated_website.connector.twitter_manifest.class">Integrated\Bundle\WebsiteBundle\Connector\TwitterManifest</parameter>
+        <parameter key="integrated_website.connector.twitter_configuration.class">Integrated\Bundle\WebsiteBundle\Connector\TwitterConfiguration</parameter>
+        <parameter key="integrated_website.connector.twitter_adapter.class">Integrated\Bundle\WebsiteBundle\Connector\TwitterAdapter</parameter>
+
     </parameters>
 
     <services>
@@ -21,6 +25,16 @@
         <service id="integrated_website.connector.website_adapter" class="%integrated_website.connector.website_adapter.class%">
             <argument type="service" id="integrated_website.connector.website_manifest" />
             <argument type="service" id="integrated_website.connector.website_configuration" />
+            <tag name="integrated_channel.connector" />
+        </service>
+
+        <service id="integrated_website.connector.twitter_manifest" class="%integrated_website.connector.twitter_manifest.class%" />
+
+        <service id="integrated_website.connector.twitter_configuration" class="%integrated_website.connector.twitter_configuration.class%" />
+
+        <service id="integrated_twitter.connector.twitter_adapter" class="%integrated_website.connector.twitter_adapter.class%">
+            <argument type="service" id="integrated_website.connector.twitter_manifest" />
+            <argument type="service" id="integrated_website.connector.twitter_configuration" />
             <tag name="integrated_channel.connector" />
         </service>
 

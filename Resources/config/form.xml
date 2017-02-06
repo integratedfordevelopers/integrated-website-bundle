@@ -8,6 +8,7 @@
 
         <parameter key="integrated_website.form.type.page.class">Integrated\Bundle\WebsiteBundle\Form\Type\PageType</parameter>
         <parameter key="integrated_website.form.type.configuration.class">Integrated\Bundle\WebsiteBundle\Form\Type\ConfigurationType</parameter>
+        <parameter key="integrated_website.form.type.twitter_configuration.class">Integrated\Bundle\WebsiteBundle\Form\Type\TwitterConfigurationType</parameter>
 
     </parameters>
 
@@ -15,6 +16,10 @@
 
         <service id="integrated_website.form.type.configuration" class="%integrated_website.form.type.configuration.class%">
             <tag name="form.type" alias="integrated_website_configuration" />
+        </service>
+
+        <service id="integrated_website.form.type.twitter_configuration" class="%integrated_website.form.type.twitter_configuration.class%">
+            <tag name="form.type" alias="integrated_twitter_configuration" />
         </service>
 
         <service id="integrated_website.form.type.page" class="%integrated_website.form.type.page.class%">
